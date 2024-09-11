@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cygna.MapLookupGen", "Cygna.MapLookupGen\Cygna.MapLookupGen.csproj", "{144B94E0-EDC3-406C-A7C6-9341B23E14A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cygna.MapLookupGen.Core", "Cygna.MapLookupGen.Core\Cygna.MapLookupGen.Core.csproj", "{68B2E2C0-EED0-48DC-A756-E88C9DA4BD8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cygna.MapLookupGen.Generators", "Cygna.MapLookupGen.Generators\Cygna.MapLookupGen.Generators.csproj", "{5C2957A9-3F66-4EF2-AF4E-9CA3B1BB5A32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cygna.MapLookupGen.Tests", "Cygna.MapLookupGen.Tests\Cygna.MapLookupGen.Tests.csproj", "{EA22E4F5-C39F-40E6-A07B-27F6D6ABAEF5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{625DBBAA-29AE-46BF-BEAB-5EF9B6C4A88B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{144B94E0-EDC3-406C-A7C6-9341B23E14A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{144B94E0-EDC3-406C-A7C6-9341B23E14A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{144B94E0-EDC3-406C-A7C6-9341B23E14A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{144B94E0-EDC3-406C-A7C6-9341B23E14A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68B2E2C0-EED0-48DC-A756-E88C9DA4BD8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68B2E2C0-EED0-48DC-A756-E88C9DA4BD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68B2E2C0-EED0-48DC-A756-E88C9DA4BD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68B2E2C0-EED0-48DC-A756-E88C9DA4BD8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C2957A9-3F66-4EF2-AF4E-9CA3B1BB5A32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C2957A9-3F66-4EF2-AF4E-9CA3B1BB5A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C2957A9-3F66-4EF2-AF4E-9CA3B1BB5A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C2957A9-3F66-4EF2-AF4E-9CA3B1BB5A32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA22E4F5-C39F-40E6-A07B-27F6D6ABAEF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA22E4F5-C39F-40E6-A07B-27F6D6ABAEF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA22E4F5-C39F-40E6-A07B-27F6D6ABAEF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA22E4F5-C39F-40E6-A07B-27F6D6ABAEF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EA22E4F5-C39F-40E6-A07B-27F6D6ABAEF5} = {625DBBAA-29AE-46BF-BEAB-5EF9B6C4A88B}
+	EndGlobalSection
+EndGlobal
