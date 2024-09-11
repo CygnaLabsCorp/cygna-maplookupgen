@@ -33,6 +33,6 @@ jobs:
     - name: Push2
       run: dotnet nuget push ./publish/Cygna.MapLookupGen.Core.${VERSION}.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}"
     - name: Push3
-      run: dotnet nuget push ./publish/Cygna.MapLookupGen.Generator.${VERSION}.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}"
+      run: dotnet nuget push ./publish/Cygna.MapLookupGen.Generators.${VERSION}.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
