@@ -14,6 +14,7 @@ public class GeneratorTests
         {
             MetadataReference.CreateFromFile(typeof(MapLookupAttribute).Assembly.Location)
         };
+        
         refs.AddRange(Net80.References.All);
 
         var compilation = CSharpCompilation.Create("TestProject",

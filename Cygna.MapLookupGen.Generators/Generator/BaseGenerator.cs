@@ -19,7 +19,7 @@ public class BaseGenerator
         var writer = new IndentedTextWriter(buffer);
 
         writer.WriteLine(Structure.NullableEnable);
-        
+
         writer.WriteUsings(new HashSet<string>()
         {
             "System",
@@ -35,28 +35,35 @@ public class BaseGenerator
         var typeName = typeMetadata.Symbol.ToDisplayString(SymbolDisplayFormat.MinimallyQualifiedFormat);
 
         writer.WriteLine($"partial class {typeName}");
-        
+
         writer.AppendOpenBracket();
-        
-        //typeMetadata.Symbol.get
-        writer.WriteLine("public static Dictionary<ulong, string> MapLookup = new()");
-        writer.AppendOpenBracket();
-        
-        foreach (var member in typeMetadata.Symbol.GetAllMembers())
+
+        var mapLookupAttribute = typeMetadata.Symbol.GetAttribute(symbols.MapLookupAttributeSymbol);
+
+        var hashMethod = (int)(mapLookupAttribute?.ConstructorArguments[0].Value ?? 0);
+
+        if (hashMethod == 0)
         {
-            if (member is IFieldSymbol s)
-            {        
-                writer.WriteLine($"{{ XxHash64.HashToUInt64(\"{s.ConstantValue}\"u8), \"{s.ConstantValue}\" }},");
-            }
+            writer.WriteLine("public static ulong Hash(ReadOnlySpan<byte> data) => XxHash64.HashToUInt64(data);");
+            
+            writer.WriteLine("public bool MapContains(ReadOnlySpan<byte> data, out string output) => MapLookup.TryGetValue(Hash(data), out output);");
         }
         
+        writer.WriteLine("public static Dictionary<ulong, string> MapLookup = new()");
+        writer.AppendOpenBracket();
+
+        foreach (var member in typeMetadata.Symbol.GetAllMembers())
+        {
+            if (member is IFieldSymbol { HasConstantValue: true } fieldSymbol)
+            {
+                writer.WriteLine($"{{ XxHash64.HashToUInt64(\"{fieldSymbol.ConstantValue}\"u8), \"{fieldSymbol.ConstantValue}\" }},");
+            }
+        }
+
         writer.AppendCloseBracket();
         writer.Write(';');
         writer.AppendCloseBracket();
-        
-        
-        return buffer.ToString();
 
+        return buffer.ToString();
     }
-    
 }
