@@ -15,12 +15,11 @@ public class LookupMapGenerator : IncrementalSourceGenerator
 {
     private static readonly string Logs = "build_property.MapLookupGen_SerializationInfoOutputDirectory";
 
-
     public LookupMapGenerator() : base(Logs)
     {
-        
+
     }
-    
+
     public override void Initialize(IncrementalGeneratorInitializationContext context)
     {
         GenerateCodeAction(context, "Cygna.MapLookupGen.MapLookupAttribute", Generate);
@@ -39,24 +38,21 @@ public class LookupMapGenerator : IncrementalSourceGenerator
         Symbols symbols = new(compilation);
         BaseGenerator generator = new();
         var typeMeta = new TypeMetadata(typeSymbol);
-        
+
         try
         {
-            var f = compilation.GetSemanticModel(syntax.SyntaxTree);
-            
-            
+            var semanticModel = compilation.GetSemanticModel(syntax.SyntaxTree);
 
-            var result = generator.Generate(context, typeMeta, symbols, syntax,  f);
+            var result = generator.Generate(context, typeMeta, symbols, syntax, semanticModel);
 
-            context.AddSource($"{NamedTypeExtensions.GetFullTypeName(typeSymbol)}.MapLookupGen.g.cs", result);
+            context.AddSource($"{typeSymbol.GetFullTypeName()}.MapLookupGen.g.cs", result);
         }
         catch (Exception e)
         {
             throw new GeneratorException(typeSymbol, "Source generator failed to run", e);
         }
-
     }
-    
+
     private static void GetGenerateCodePreamble(TypeDeclarationSyntax syntax, Compilation compilation,
         IGeneratorContext context, out INamedTypeSymbol? typeSymbol)
     {
