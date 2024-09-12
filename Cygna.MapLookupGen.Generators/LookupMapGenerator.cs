@@ -10,6 +10,9 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Cygna.MapLookupGen.Generators;
 
+/// <summary>
+/// Main generator entry point
+/// </summary>
 [Generator(LanguageNames.CSharp)]
 public class LookupMapGenerator : IncrementalSourceGenerator
 {
@@ -23,9 +26,15 @@ public class LookupMapGenerator : IncrementalSourceGenerator
     public override void Initialize(IncrementalGeneratorInitializationContext context)
     {
         GenerateCodeAction(context, "Cygna.MapLookupGen.MapLookupAttribute", Generate);
-
     }
 
+    /// <summary>
+    /// Main source generator handler
+    /// </summary>
+    /// <param name="syntax"></param>
+    /// <param name="compilation"></param>
+    /// <param name="context"></param>
+    /// <exception cref="GeneratorException"></exception>
     private static void Generate(TypeDeclarationSyntax syntax, Compilation compilation, IGeneratorContext context)
     {
         GetGenerateCodePreamble(syntax, compilation, context, out var typeSymbol);

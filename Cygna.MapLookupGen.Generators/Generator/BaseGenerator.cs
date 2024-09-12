@@ -4,7 +4,6 @@ using Cygna.CodeGen.Generator;
 using Cygna.CodeGen.Metadata;
 using Cygna.CodeGen.Writer;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using SymbolDisplayFormat = Microsoft.CodeAnalysis.SymbolDisplayFormat;
 
@@ -45,10 +44,11 @@ public class BaseGenerator
         if (hashMethod == 0)
         {
             writer.WriteLine("public static ulong Hash(ReadOnlySpan<byte> data) => XxHash64.HashToUInt64(data);");
-            
-            writer.WriteLine("public static bool MapContains(ReadOnlySpan<byte> data, out string output) => MapLookup.TryGetValue(Hash(data), out output);");
+
+            writer.WriteLine(
+                "public static bool MapContains(ReadOnlySpan<byte> data, out string output) => MapLookup.TryGetValue(Hash(data), out output);");
         }
-        
+
         writer.WriteLine("public static Dictionary<ulong, string> MapLookup = new()");
         writer.AppendOpenBracket();
 
@@ -56,7 +56,8 @@ public class BaseGenerator
         {
             if (member is IFieldSymbol { HasConstantValue: true } fieldSymbol)
             {
-                writer.WriteLine($"{{ XxHash64.HashToUInt64(\"{fieldSymbol.ConstantValue}\"u8), \"{fieldSymbol.ConstantValue}\" }},");
+                writer.WriteLine(
+                    $"{{ XxHash64.HashToUInt64(\"{fieldSymbol.ConstantValue}\"u8), \"{fieldSymbol.ConstantValue}\" }},");
             }
         }
 

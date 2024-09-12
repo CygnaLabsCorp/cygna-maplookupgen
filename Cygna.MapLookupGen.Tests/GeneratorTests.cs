@@ -14,7 +14,7 @@ public class GeneratorTests
         {
             MetadataReference.CreateFromFile(typeof(MapLookupAttribute).Assembly.Location)
         };
-        
+
         refs.AddRange(Net80.References.All);
 
         var compilation = CSharpCompilation.Create("TestProject",
@@ -34,7 +34,7 @@ public partial class MyTestClass
 
         var generator = new LookupMapGenerator();
         var sourceGenerator = generator.AsSourceGenerator();
-        
+
         GeneratorDriver driver = CSharpGeneratorDriver.Create(
             generators: [sourceGenerator],
             driverOptions: new GeneratorDriverOptions(default, trackIncrementalGeneratorSteps: true));
@@ -42,10 +42,10 @@ public partial class MyTestClass
         driver = driver.RunGenerators(compilation);
 
         var result = driver.GetRunResult().Results.Single();
-        
+
         var allOutputs = result.TrackedOutputSteps.SelectMany(outputStep => outputStep.Value)
             .SelectMany(output => output.Outputs);
-        
+
         Assert.Collection(allOutputs, output => Assert.Equal(IncrementalStepRunReason.New, output.Reason));
     }
 }
