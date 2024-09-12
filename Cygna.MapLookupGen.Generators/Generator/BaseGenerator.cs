@@ -46,7 +46,7 @@ public class BaseGenerator
         {
             writer.WriteLine("public static ulong Hash(ReadOnlySpan<byte> data) => XxHash64.HashToUInt64(data);");
             
-            writer.WriteLine("public bool MapContains(ReadOnlySpan<byte> data, out string output) => MapLookup.TryGetValue(Hash(data), out output);");
+            writer.WriteLine("public static bool MapContains(ReadOnlySpan<byte> data, out string output) => MapLookup.TryGetValue(Hash(data), out output);");
         }
         
         writer.WriteLine("public static Dictionary<ulong, string> MapLookup = new()");
