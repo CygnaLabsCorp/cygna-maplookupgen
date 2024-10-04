@@ -37,7 +37,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Cygna.CodeGen" Version="0.0.11.0" GeneratePathProperty="true" PrivateAssets="all"/>
+        <PackageReference Include="Cygna.CodeGen" Version="0.0.18.0" GeneratePathProperty="true" PrivateAssets="all"/>
     </ItemGroup>
 
     <Target Name="PackBuildOutputs" DependsOnTargets="SatelliteDllsProjectOutputGroup;DebugSymbolsProjectOutputGroup">

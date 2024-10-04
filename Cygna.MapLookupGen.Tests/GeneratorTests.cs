@@ -1,4 +1,5 @@
 using Basic.Reference.Assemblies;
+using Cygna.CodeGen.Test;
 using Cygna.MapLookupGen.Generators;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -10,38 +11,7 @@ public class GeneratorTests
     [Fact]
     public void Generator()
     {
-        var refs = new List<MetadataReference>()
-        {
-            MetadataReference.CreateFromFile(typeof(MapLookupAttribute).Assembly.Location)
-        };
-
-        refs.AddRange(Net80.References.All);
-
-        var compilation = CSharpCompilation.Create("TestProject",
-            new[]
-            {
-                CSharpSyntaxTree.ParseText(@"
-namespace Cygna.MapLookupGen.Tests.Model;
-
-[MapLookup]
-public partial class MyTestClass 
-{
-
-}"),
-            },
-            refs,
-            new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
-
-        var generator = new LookupMapGenerator();
-        var sourceGenerator = generator.AsSourceGenerator();
-
-        GeneratorDriver driver = CSharpGeneratorDriver.Create(
-            generators: [sourceGenerator],
-            driverOptions: new GeneratorDriverOptions(default, trackIncrementalGeneratorSteps: true));
-
-        driver = driver.RunGenerators(compilation);
-
-        var result = driver.GetRunResult().Results.Single();
+        var result = SyntaxTreeBuilder.GenerateCode<LookupMapGenerator>(Definitions.Valid, typeof(MapLookupAttribute));
 
         var allOutputs = result.TrackedOutputSteps.SelectMany(outputStep => outputStep.Value)
             .SelectMany(output => output.Outputs);
