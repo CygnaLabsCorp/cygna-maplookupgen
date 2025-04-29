@@ -43,8 +43,14 @@ public class BaseGenerator
 
         if (hashMethod == 0)
         {
+            writer
+                .WriteSummaryXmlTag("Creates an XxHash64 of the provided buffer")
+                .WriteParamXmlTag("data", "Buffer to create hash from");
             writer.WriteLine("public static ulong Hash(ReadOnlySpan<byte> data) => XxHash64.HashToUInt64(data);");
 
+            writer
+                .WriteSummaryXmlTag("Checks if the map contains the provided buffer")
+                .WriteReturnsXmlTag("True if map contains the buffer, false otherwise");
             writer.WriteLine(
                 "public static bool MapContains(ReadOnlySpan<byte> data, out string output) => MapLookup.TryGetValue(Hash(data), out output);");
         }

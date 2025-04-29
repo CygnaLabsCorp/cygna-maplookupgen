@@ -28,16 +28,14 @@
 
     <ItemGroup>
         <PackageReference Include="H.Generators.Extensions" Version="1.4.2" PrivateAssets="all" />
-
         <PackageReference Update="NETStandard.Library" PrivateAssets="all" GeneratePathProperty="true" />
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.9.2" PrivateAssets="all" />
-
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.2" PrivateAssets="all" />
         <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Cygna.CodeGen" Version="0.0.18.0" GeneratePathProperty="true" PrivateAssets="all"/>
+        <PackageReference Include="Cygna.CodeGen" Version="0.0.22.0" GeneratePathProperty="true" PrivateAssets="all"/>
     </ItemGroup>
 
     <Target Name="PackBuildOutputs" DependsOnTargets="SatelliteDllsProjectOutputGroup;DebugSymbolsProjectOutputGroup">
