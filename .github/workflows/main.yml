@@ -4,7 +4,7 @@ on:
     - "v[0-9]+.[0-9]+.[0-9]+"
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 15
     steps:
     - name: Checkout
@@ -23,18 +23,20 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: Set VERSION variable from tag
-      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
+      run: |
+        $VERSION=$Env:GITHUB_REF_NAME.TrimStart("v")
+        echo "VERSION=$VERSION" >> $Env:GITHUB_ENV
     - name: Build
-      run: dotnet build --configuration Release /p:Version=${VERSION}
+      run: dotnet build --configuration Release /p:Version=$Env:VERSION
     - name: Test
-      run: dotnet test --configuration Release /p:Version=${VERSION} --no-build
+      run: dotnet test --configuration Release /p:Version=$Env:VERSION --no-build
     - name: Pack
-      run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output ./publish
+      run: dotnet pack --configuration Release /p:Version=$Env:VERSION --no-build --output ./publish
     - name: Push1
-      run: dotnet nuget push ./publish/Cygna.MapLookupGen.${VERSION}.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}"
+      run: dotnet nuget push ./publish/Cygna.MapLookupGen.$Env:VERSION.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}"
     - name: Push2
-      run: dotnet nuget push ./publish/Cygna.MapLookupGen.Core.${VERSION}.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}"
+      run: dotnet nuget push ./publish/Cygna.MapLookupGen.Core.$Env:VERSION.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}"
     - name: Push3
-      run: dotnet nuget push ./publish/Cygna.MapLookupGen.Generators.${VERSION}.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}"
+      run: dotnet nuget push ./publish/Cygna.MapLookupGen.Generators.$Env:VERSION.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
