@@ -1,4 +1,4 @@
-using Cygna.CodeGen;
+using Cygna.Generators.Core;
 using Microsoft.CodeAnalysis;
 
 namespace Cygna.MapLookupGen.Generators;

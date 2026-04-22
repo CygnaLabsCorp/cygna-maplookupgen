@@ -1,0 +1,16 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=01fca330_002Dbf31_002D4901_002D9e18_002Dbd8cb7d9a96a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Tests&amp;gt;\&amp;lt;Cygna.MapLookupGen.Tests&amp;gt; #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="E:\source\cygna-maplookupgen\Cygna.MapLookupGen.Tests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;Cygna.MapLookupGen.Tests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0dfe0c85_002D443e_002D4423_002Db41c_002D8988011a6a11/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;Tests&amp;gt;\&amp;lt;Cygna.MapLookupGen.Tests&amp;gt; #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="E:\source\cygna-maplookupgen\Cygna.MapLookupGen.Tests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;Cygna.MapLookupGen.Tests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=53e05445_002Da335_002D4c52_002D81a0_002D443cfc8c3a15/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Tests&amp;gt;\&amp;lt;Cygna.MapLookupGen.Tests&amp;gt; #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="E:\source\cygna-maplookupgen\Cygna.MapLookupGen.Tests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;Cygna.MapLookupGen.Tests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=689119b6_002Db98e_002D4c74_002D9006_002D086bea314740/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Tests&amp;gt;\&amp;lt;Cygna.MapLookupGen.Tests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="E:\source\cygna-maplookupgen\Cygna.MapLookupGen.Tests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;Cygna.MapLookupGen.Tests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7e88852a_002D9534_002D41e8_002Daefa_002D19055a3f44d0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Tests&amp;gt;\&amp;lt;Cygna.MapLookupGen.Tests&amp;gt; #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="E:\source\cygna-maplookupgen\Cygna.MapLookupGen.Tests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;Cygna.MapLookupGen.Tests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

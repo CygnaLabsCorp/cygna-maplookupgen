@@ -1,8 +1,8 @@
 using System.Runtime.CompilerServices;
-using Cygna.CodeGen;
-using Cygna.CodeGen.Generator;
-using Cygna.CodeGen.Metadata;
-using Cygna.CodeGen.Types;
+using Cygna.Generators.Core;
+using Cygna.Generators.Core.Generator;
+using Cygna.Generators.Core.Metadata;
+using Cygna.Generators.Core.Types;
 using Cygna.MapLookupGen.Generators.Generator;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -58,7 +58,8 @@ public class LookupMapGenerator : IncrementalSourceGenerator
         }
         catch (Exception e)
         {
-            throw new GeneratorException(typeSymbol, "Source generator failed to run", e);
+            throw new Exception("Source generator failed to run", e);
+            //throw new GeneratorException(typeSymbol, "Source generator failed to run", e);
         }
     }
 
@@ -70,7 +71,8 @@ public class LookupMapGenerator : IncrementalSourceGenerator
 
         if (typeSymbol == null)
         {
-            throw new GeneratorException("TypeSymbol is null");
+            throw new Exception("TypeSymbol is null");
+            //throw new GeneratorException("TypeSymbol is null");
         }
 
         var isPartial = syntax.IsPartial();

@@ -1,8 +1,8 @@
 using System.CodeDom.Compiler;
 using System.Text;
-using Cygna.CodeGen.Generator;
-using Cygna.CodeGen.Metadata;
-using Cygna.CodeGen.Writer;
+using Cygna.Generators.Core.Generator;
+using Cygna.Generators.Core.Metadata;
+using Cygna.Generators.Core.Writer;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using SymbolDisplayFormat = Microsoft.CodeAnalysis.SymbolDisplayFormat;
