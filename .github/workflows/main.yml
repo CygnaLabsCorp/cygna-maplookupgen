@@ -17,9 +17,6 @@ jobs:
       with:
         dotnet-version: |
           10.0.x
-        source-url: https://nuget.pkg.github.com/CygnaLabsCorp/index.json
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: Set VERSION variable from tag
       run: |
         $VERSION=$Env:GITHUB_REF_NAME.TrimStart("v")
