@@ -28,10 +28,10 @@ jobs:
     - name: Pack
       run: dotnet pack --configuration Release /p:Version=$Env:VERSION --no-build --output ./publish
     - name: Push1
-      run: dotnet nuget push ./publish/Cygna.MapLookupGen.$Env:VERSION.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}"
+      run: dotnet nuget push ./publish/Cygna.MapLookupGen.$Env:VERSION.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}" --source https://nuget.pkg.github.com/CygnaLabsCorp/index.json
     - name: Push2
-      run: dotnet nuget push ./publish/Cygna.MapLookupGen.Core.$Env:VERSION.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}"
+      run: dotnet nuget push ./publish/Cygna.MapLookupGen.Core.$Env:VERSION.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}" --source https://nuget.pkg.github.com/CygnaLabsCorp/index.json
     - name: Push3
-      run: dotnet nuget push ./publish/Cygna.MapLookupGen.Generators.$Env:VERSION.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}"
+      run: dotnet nuget push ./publish/Cygna.MapLookupGen.Generators.$Env:VERSION.nupkg --skip-duplicate -n --api-key "${{ secrets.GITHUB_TOKEN }}" --source https://nuget.pkg.github.com/CygnaLabsCorp/index.json
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
